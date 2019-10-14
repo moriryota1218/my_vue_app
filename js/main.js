@@ -5,9 +5,9 @@
     el: '#app',
     data: {
      todos: [
-       'task1',
-       'task2',
-       'task3'
+       'task 1',
+       'task 2',
+       'task 3'
      ]
     }
   });
