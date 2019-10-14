@@ -4,7 +4,11 @@
   const vm = new Vue({
     el: '#app',
     data: {
-      name: 'Ryota'
+     todos: [
+       'task1',
+       'task2',
+       'task3'
+     ]
     }
   });
 })();
