@@ -11,8 +11,9 @@
     <ul>
       <li v-for="todo in todos">{{ todo }}</li>
     </ul>
-    <form>
-      <input type="text">
+    <!-- v-onは＠で省略できる -->
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="newItem">
       <input type="submit" value="Add">
     </form>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
