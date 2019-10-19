@@ -12,9 +12,17 @@
       ]
     },
     methods: {
-      addItem: function() {
+      addItem: function () {
         this.todos.push(this.newItem);
         this.newItem = '';
+      },
+      // 引数にindexを渡す
+      deleteItem: function (index) {
+        if (confirm('削除しますか?')) {
+          this.todos.splice(index, 1);
+        }
+
+
       }
     }
   });
