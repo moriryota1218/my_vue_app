@@ -5,17 +5,17 @@
     el: '#app',
     data: {
       newItem: '',
-      // todos: [{
-      //   title: 'task 1',
-      //   isDone: false
-      // }, {
-      //   title: 'task 2',
-      //   isDone: false
-      // }, {
-      //   title: 'task 3',
-      //   isDone: true
-      // }]
+
       todos: []
+    },
+    // localStorageを使用したデータの永続化
+    watch: {
+      todos: {
+        handler: function () {
+          localStorage.setItem('todos', JSON.stringify(this.todos));
+        },
+        deep: true
+      }
     },
     methods: {
       addItem: function () {
@@ -36,20 +36,14 @@
         if (!confirm('一括削除しますか?')) {
           return;
         }
-        // this.todos = this.todos.filter(function(todo){
-        //   return !todo.isDone;
-        // });
+
         this.todos = this.remaining;
       }
     },
     // todoの残数を表示(算出プロパティ)
     computed: {
-      remaining: function(){
-        // let items = this.todos.filter(function(todo){
-        //   return !todo.isDone;
-        // });
-        // return items.length;
-        return this.todos.filter(function(todo){
+      remaining: function () {
+        return this.todos.filter(function (todo) {
           return !todo.isDone;
         });
       }
