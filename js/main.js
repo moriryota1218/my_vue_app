@@ -31,15 +31,27 @@
         if (confirm('削除しますか?')) {
           this.todos.splice(index, 1);
         }
+      },
+      purge: function () {
+        if (!confirm('一括削除しますか?')) {
+          return;
+        }
+        // this.todos = this.todos.filter(function(todo){
+        //   return !todo.isDone;
+        // });
+        this.todos = this.remaining;
       }
     },
     // todoの残数を表示(算出プロパティ)
     computed: {
       remaining: function(){
-        let items = this.todos.filter(function(todo){
+        // let items = this.todos.filter(function(todo){
+        //   return !todo.isDone;
+        // });
+        // return items.length;
+        return this.todos.filter(function(todo){
           return !todo.isDone;
         });
-        return items.length;
       }
     }
   });
