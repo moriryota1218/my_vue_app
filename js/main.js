@@ -5,7 +5,6 @@
     el: '#app',
     data: {
       newItem: '',
-
       todos: []
     },
     // localStorageを使用したデータの永続化
@@ -16,6 +15,10 @@
         },
         deep: true
       }
+    },
+    // localStorageに保存したデータを読み出す
+    mounted: function () {
+      this.todos = JSON.parse(localStorage.getItem('todos')) || [];
     },
     methods: {
       addItem: function () {
